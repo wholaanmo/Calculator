@@ -15,7 +15,7 @@ public class AdvancedCalcu extends javax.swing.JFrame {
      */
     public AdvancedCalcu() {
         initComponents();
-        jRadioButton1.setEnabled(false); /* ON/OFF BUTTON */
+        jRadioButtonOn.setEnabled(false);/* ON/OFF BUTTON */
     }
 
     double num1,num2,fact1,fact2,factorial,fact,num,result; /* +, -, x, /, %, x^y */
@@ -26,11 +26,9 @@ public class AdvancedCalcu extends javax.swing.JFrame {
     public void enable()
        {
         jTextField1.setEnabled(true);
-        jTextField2.setEnabled(true);
-        jTextFieldResult.setEnabled(true);
         
-        jRadioButton1.setEnabled(false);
-        jRadioButton2.setEnabled(true);
+        jRadioButtonOn.setEnabled(false);
+        jRadioButtonOff.setEnabled(true);
         
         jButton1.setEnabled(true);
         jButton2.setEnabled(true);
@@ -75,11 +73,9 @@ public class AdvancedCalcu extends javax.swing.JFrame {
         public void disable()
     {
         jTextField1.setEnabled(false);
-        jTextField2.setEnabled(false);
-        jTextFieldResult.setEnabled(false);
         
-        jRadioButton1.setEnabled(true);
-        jRadioButton2.setEnabled(false);
+        jRadioButtonOn.setEnabled(true);
+        jRadioButtonOff.setEnabled(false);
         
         jButton1.setEnabled(false);
         jButton2.setEnabled(false);
@@ -131,8 +127,9 @@ public class AdvancedCalcu extends javax.swing.JFrame {
 
         jButton37 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        jTextField2 = new javax.swing.JTextField();
+        jRadioButtonOn = new javax.swing.JRadioButton();
+        jRadioButtonOff = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -183,20 +180,21 @@ public class AdvancedCalcu extends javax.swing.JFrame {
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextField1.setEditable(false);
 
-        jRadioButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jRadioButton1.setText("ON");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonOn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jRadioButtonOn.setText("ON");
+        jRadioButtonOn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                jRadioButtonOnActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jRadioButton2.setText("OFF");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonOff.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jRadioButtonOff.setText("OFF");
+        jRadioButtonOff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                jRadioButtonOffActionPerformed(evt);
             }
         });
 
@@ -229,7 +227,7 @@ public class AdvancedCalcu extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(250, 250, 146));
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton4.setText("x+y");
+        jButton4.setText("nPr");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -238,7 +236,7 @@ public class AdvancedCalcu extends javax.swing.JFrame {
 
         jButton5.setBackground(new java.awt.Color(250, 250, 146));
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton5.setText("xy");
+        jButton5.setText("nCr");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -337,7 +335,7 @@ public class AdvancedCalcu extends javax.swing.JFrame {
 
         jButton16.setBackground(new java.awt.Color(250, 250, 146));
         jButton16.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jButton16.setText("EXP");
+        jButton16.setText("P(A)");
         jButton16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton16ActionPerformed(evt);
@@ -598,9 +596,9 @@ public class AdvancedCalcu extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jRadioButton1)
+                                .addComponent(jRadioButtonOn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButton2))
+                                .addComponent(jRadioButtonOff))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -639,8 +637,8 @@ public class AdvancedCalcu extends javax.swing.JFrame {
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jRadioButtonOn)
+                    .addComponent(jRadioButtonOff, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -813,7 +811,7 @@ jTextField1.setText(jTextField1.getText() + t);
     }                                         
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        /* PERCENTAGE */
+        /* MODULUS DIVISION */
         num1 = Double.parseDouble(jTextField1.getText());
         
         jTextField1.setText("");
@@ -833,52 +831,47 @@ jTextField1.setText(jTextField1.getText() + t);
         /* EQUAL */
         num2 = Double.parseDouble(jTextField1.getText());
         
-        if(opr == "+")
-        {
-            result = num1 + num2;
-            jTextField1.setText(Double.toString(result));
-        }
+        switch (opr) {
+        	case "+":
+              result = num1 + num2;
+              break;
+              
+            case "-":
+              result = num1 - num2;
+              break;
+             
+            case "*":
+              result = num1 * num2;
+              break;
+             
+            case "/":
+              result = num1 / num2;
+              break;
+              
+            case "%":
+              result = num1 % num2;
+              break;
+              
+            case "x^y":
+              result = Math.pow(num1,num2);
+              break;
+              
+           case "//":
+              result = (int)(num1/num2);
+              break;
+              
+           default:
+              jTextField1.setText("Error: Unknown Operation");
+              return;
+        }       
         
-        else if(opr == "-"){
-            
-            result = num1 - num2;
-            jTextField1.setText(Double.toString(result));
-        }
-        
-        else if(opr == "*"){
-            
-            result = num1 * num2;
-            jTextField1.setText(Double.toString(result));
-        }
-        
-        else if(opr == "/"){
-            
-            result = num1 / num2;
-            jTextField1.setText(Double.toString(result));
-        }
-        
-        else if(opr == "%"){
-            
-            result = num1 % num2;
-            jTextField1.setText(Double.toString(result));
-        }
-        
-        else if (opr == "x^y")
-        {
-            for(int i=0; i<num2; i++){
-            
-            result = num1*num2;
-        }
-            jTextField1.setText(Double.toString(result));
-        }
-    }                                         
-
+        jTextField1.setText(Double.toString(result));      
+    }
+    
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         /* LOG2 X */
         double t=Math.log(Double.parseDouble(jTextField1.getText())) / Math.log(2);
-
-        jTextField1.setText("");
-        jTextField1.setText(jTextField1.getText() + t);
+        jTextField1.setText(String.valueOf(t));
     }                                        
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {                                          
@@ -886,7 +879,7 @@ jTextField1.setText(jTextField1.getText() + t);
     }                                         
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-         /* X^Y *///////////////////////////////////////////////////////////////////////////////////////////////////////////
+         /* X^Y */
         num1 = Double.parseDouble(jTextField1.getText());
         
         jTextField1.setText("");
@@ -895,7 +888,9 @@ jTextField1.setText(jTextField1.getText() + t);
     }                                        
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        // TODO add your handling code here:
+        /* INT (Round to nearest integer) */
+        double t = Math.round(Double.parseDouble(jTextField1.getText()));
+        jTextField1.setText(String.valueOf(t));
     }                                         
 
     private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {                                          
@@ -908,28 +903,42 @@ jTextField1.setText(jTextField1.getText() + t);
     }                                         
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-       /*// - OUTPUT THE QUOTIENT WITHOUT REMINDER *///////////////////////////////////////////////////////////////////////////////////
+       /* (//) INTEGER DIVISION */
+       num1 = Double.parseDouble(jTextField1.getText());
        
+       jTextField1.setText("");
+       
+       opr = "//";
     }                                        
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        /*PRODUCT NOTATION (PI)*///////////////////////////////////////////////////////////////////////////////////////////////
+        /*PRODUCT NOTATION (PIPRODUCT)*///////////////////////////////////////////////////////////////////////////////////////////////
     }                                         
 
     private void jButton39ActionPerformed(java.awt.event.ActionEvent evt) {                                          
         /*SQRT*/
-        double t=Math.sqrt(Double.parseDouble(jTextField1.getText()));
-        
-        jTextField1.setText("");
-        jTextField1.setText(jTextField1.getText() + t);
+        num1 = Double.parseDouble(jTextField1.getText());
+        if(num1<0){
+        	jTextField1.setText("Error");
+            return;
+        }else{
+        double t = num1;
+        t=Math.sqrt(Double.parseDouble(jTextField1.getText()));
+        jTextField1.setText(String.valueOf(t));
+        }
     }                                         
 
     private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {                                          
          /*CBRT*/
-        double t=Math.cbrt(Double.parseDouble(jTextField1.getText()));
-        
-        jTextField1.setText("");
-        jTextField1.setText(jTextField1.getText() + t);
+        num1 = Double.parseDouble(jTextField1.getText());
+        if(num1<0){
+        	jTextField1.setText("Error");
+            return;
+        }else{
+        double t = num1;
+        t=Math.cbrt(Double.parseDouble(jTextField1.getText()));
+        jTextField1.setText(String.valueOf(t));
+        }
     }                                         
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -941,28 +950,24 @@ jTextField1.setText(jTextField1.getText() + t);
 
     }                                        
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                              
+    private void jRadioButtonOnActionPerformed(java.awt.event.ActionEvent evt) {                                              
         enable();
     }                                             
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                              
+    private void jRadioButtonOffActionPerformed(java.awt.event.ActionEvent evt) {                                              
         disable();
     }                                             
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {                                          
         /* CEILING */
         double t=Math.ceil(Double.parseDouble(jTextField1.getText()));
-
-        jTextField1.setText("");
-        jTextField1.setText(jTextField1.getText() + t);
+         jTextField1.setText(String.valueOf(t));
     }                                         
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {                                          
         /* FLOORING */
         double t=Math.floor(Double.parseDouble(jTextField1.getText()));
-
-        jTextField1.setText("");
-        jTextField1.setText(jTextField1.getText() + t);
+        jTextField1.setText(String.valueOf(t));
     }                                         
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -973,14 +978,20 @@ jTextField1.setText(jTextField1.getText() + t);
         /* N! */
         double t=Double.parseDouble(jTextField1.getText());
         
-        double fact=1;
-        while(t!=0){
-            
-            fact= fact*t;
-            t--;
+        if(t % 1 != 0){
+        	jTextField1.setText("Error");
+            return;
         }
-        jTextField1.setText("");
-        jTextField1.setText(jTextField1.getText() + fact);
+        else{
+            double fact=1;
+            while(t!=0){
+            
+               fact= fact*t;
+               t--;
+             }
+             jTextField1.setText("");
+             jTextField1.setText(jTextField1.getText() + fact);
+        }
     }                                        
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -991,10 +1002,7 @@ jTextField1.setText(jTextField1.getText() + t);
         /*NEGATIVE SIGN (-) */
         jTextField1.setText(jTextField1.getText() + "-");
         double t = Double.parseDouble(jTextField1.getText()) * -1;
-
-        jTextField1.setText("");
-        jTextField1.setText(jTextField1.getText() + t);
-
+        jTextField1.setText(String.valueOf(t));
     }                                        
 
     /**
@@ -1027,7 +1035,7 @@ jTextField1.setText(jTextField1.getText() + t);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Calcu().setVisible(true);
+                new AdvancedCalcu().setVisible(true);
             }
         });
     }
@@ -1071,10 +1079,9 @@ jTextField1.setText(jTextField1.getText() + t);
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButtonOn;
+    private javax.swing.JRadioButton jRadioButtonOff;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextFieldResult;
     // End of variables declaration                   
 }
